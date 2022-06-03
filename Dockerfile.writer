@@ -7,6 +7,3 @@ RUN pip install -r requirements.txt
 COPY . .
 
 CMD [ "python3", "writer.py"]
-
-# docker build -f Dockerfile.writer --network host -t writer .
-# docker run --rm --name writer -v /dev/shm:/dev/shm -it writer

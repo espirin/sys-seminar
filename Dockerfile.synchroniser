@@ -7,6 +7,3 @@ RUN pip install -r requirements.txt
 COPY . .
 
 CMD [ "python3", "synchroniser.py"]
-
-# docker build -f Dockerfile.synchroniser --network host -t synchroniser .
-# docker run --rm --name synchroniser -v /dev/shm:/dev/shm -it synchroniser
