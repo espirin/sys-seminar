@@ -1,6 +1,6 @@
 # Modern Data Center Systems - Distributed Shared Memory Demo
 
-####⚠️ You need Docker to run this demo
+**⚠️ You need Docker to run this demo**
 
 ✍🏻 Run writer:
 ```
@@ -14,7 +14,7 @@ docker build -f Dockerfile.reader --network host -t reader .
 docker run --rm --name reader -v /dev/shm:/dev/shm -it reader
 ```
 
-####Always start writer before reader!
+**Always start writer before reader!**
 
 🌍 Run synchroniser (not implemented yet):
 ```
