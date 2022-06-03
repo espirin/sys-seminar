@@ -2,6 +2,8 @@
 
 **⚠️ You need Docker to run this demo**
 
+**❌️ OSX ist not supported, run on Linux**
+
 ✍🏻 Run writer:
 ```
 docker build -f Dockerfile.writer --network host -t writer .
