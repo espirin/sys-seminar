@@ -1,0 +1,12 @@
+FROM python:3.9
+
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD [ "python3", "reader.py"]
+
+# docker build -f Dockerfile.reader --network host -t reader .
+# docker run --rm --name reader -v /dev/shm:/dev/shm -it reader
