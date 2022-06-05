@@ -21,10 +21,12 @@ while True:
         if shm != last_shm:
             try:
                 requests.post(SYNCHRONISATION_SERVER_URL, data=shm)
-            except RequestException:
+            except RequestException as e:
                 print("Couldn't reach server or server error")
+                print(e)
             else:
                 last_shm = shm
+                print("Pushed shared memory update to server")
         # If not, pull updates from the synchronisation server
         else:
             update_shm = True
@@ -35,13 +37,15 @@ while True:
         # Pull updates from the synchronisation server
         try:
             new_shm = requests.get(SYNCHRONISATION_SERVER_URL).content
-        except RequestException:
+        except RequestException as e:
             print("Couldn't reach server or server error")
+            print(e)
         else:
             # If there are changes on the server, update local shared memory
             if new_shm != last_shm:
                 with open(shm_path, "wb") as f:
                     f.write(new_shm)
                 last_shm = new_shm
+                print("Updated shared memory from server")
 
     time.sleep(SYNCHRONISER_UPDATE_DELAY)

@@ -21,5 +21,5 @@ docker run --rm --name reader -v /dev/shm:/dev/shm -it reader
 🌍 Run synchroniser (not implemented yet):
 ```
 docker build -f Dockerfile.synchroniser --network host -t synchroniser .
-docker run --rm --name synchroniser -v /dev/shm:/dev/shm -it synchroniser
+docker run --rm --name synchroniser -v /dev/shm:/dev/shm -it --network host synchroniser
 ```
