@@ -12,7 +12,8 @@ lock = False
 
 @app.route("/", methods=['GET'])
 def index_get():
-    return send_file(io.BytesIO(shared_memory))
+    return send_file(io.BytesIO(shared_memory),
+                     mimetype='image/jpeg')
 
 
 @app.route("/", methods=['POST'])
