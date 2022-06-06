@@ -1,20 +1,38 @@
 # Modern Data Center Systems - Distributed Shared Memory Demo
 
-**⚠️ You need Docker to run this demo**
+**⚠️ You need Docker and [our OpenWhisk fork](https://github.com/espirin/openwhisk-shm) to run this demo**
 
-**❌️ OSX/Windows are not supported, run on Linux**
+**❌️ OSX/Windows are not supported, run on x86 Linux**
 
 ###Demo Setup
 **Machine 1:**
 - synchroniser
-- writer
+- writer (in OpenWhisk)
 
 **Machine 2:**
 - synchroniser
-- reader
+- reader (in OpenWhisk)
 
 **Synchronisation server (you can use http://85.214.75.108:5000):**
-- synchronisation server
+- synchronisation server (Flask)
+
+###OpenWhisk setup
+Install out OpenWhisk fork
+```
+git clone https://github.com/espirin/openwhisk-shm
+cd openwhisk-shm
+./gradlew core:standalone:bootRun
+```
+Install WSK (OpenWhisk CLI). Then unzip it and add wsk to $PATH.
+```
+wget https://github.com/apache/openwhisk-cli/releases
+```
+
+Create actions
+```
+wsk action create reader --docker nitrotube/python39_runtime reader.py
+wsk action create writer --docker nitrotube/python39_runtime writer.py 
+```
 
 ###How to run
 🌍 Synchroniser:
@@ -25,15 +43,15 @@ docker run --rm --name synchroniser -v /dev/shm:/dev/shm -it --network host sync
 
 ✍🏻 Writer:
 ```
-docker build -f Dockerfile.writer --network host -t writer .
-docker run --rm --name writer -v /dev/shm:/dev/shm -it writer
+wsk action invoke --result writer --param seconds 10
 ```
 
 👓 Reader:
 ```
-docker build -f Dockerfile.reader --network host -t reader .
-docker run --rm --name reader -v /dev/shm:/dev/shm -it reader
+wsk action invoke --result reader --param seconds 10
 ```
+
+Preferred starting order: writer, synchroniser, reader. 
 
 🖥 Synchronisation server:
 
