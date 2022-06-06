@@ -4,15 +4,17 @@ from time import sleep
 
 import numpy as np
 
-from config import SHM_NAME
 
-existing_shm = shared_memory.SharedMemory(name=SHM_NAME)
-c = np.ndarray((5,), dtype=np.int64, buffer=existing_shm.buf)
+def main(args):
+    existing_shm = shared_memory.SharedMemory(name="sys_seminar_shm")
+    c = np.ndarray((5,), dtype=np.int64, buffer=existing_shm.buf)
 
-print("Printing numpy array from shared memory...")
-local_copy = copy(list(c))
-while True:
-    if list(c) != local_copy:
-        print(c)
-        local_copy = copy(list(c))
-    sleep(0.1)
+    print("Printing numpy array from shared memory...")
+    local_copy = copy(list(c))
+    for i in range(100):
+        if list(c) != local_copy:
+            print(c)
+            local_copy = copy(list(c))
+        sleep(0.1)
+
+    return {"status": "done"}
