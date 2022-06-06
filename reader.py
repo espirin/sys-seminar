@@ -11,7 +11,7 @@ def main(args):
 
     print("Printing numpy array from shared memory...")
     local_copy = copy(list(c))
-    for i in range(100):
+    for i in range(args.get("cycles", 300)):
         if list(c) != local_copy:
             print(c)
             local_copy = copy(list(c))
