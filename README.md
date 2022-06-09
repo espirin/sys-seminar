@@ -4,7 +4,7 @@
 
 **❌️ OSX/Windows are not supported, run on x86 Linux**
 
-###Demo Setup
+##Demo Setup
 **Machine 1:**
 - synchroniser
 - writer (in OpenWhisk)
@@ -16,7 +16,7 @@
 **Synchronisation server (you can use http://85.214.75.108:5000):**
 - synchronisation server (Flask)
 
-###OpenWhisk setup
+##OpenWhisk setup
 Install out OpenWhisk fork
 ```
 git clone https://github.com/espirin/openwhisk-shm
@@ -34,7 +34,7 @@ wsk action create reader --docker nitrotube/python39_runtime reader.py
 wsk action create writer --docker nitrotube/python39_runtime writer.py 
 ```
 
-###How to run
+##How to run
 🌍 Synchroniser:
 ```
 docker build -f Dockerfile.synchroniser --network host -t synchroniser .
