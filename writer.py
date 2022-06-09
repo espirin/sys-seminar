@@ -12,17 +12,17 @@ def main(args):
     except (IndexError, ValueError, FileExistsError):
         pass
 
-    a = np.array([1, 1, 2, 3, 5])
-    shm = shared_memory.SharedMemory(create=True, size=a.nbytes, name="sys_seminar_shm")
-    b = np.ndarray(a.shape, dtype=a.dtype, buffer=shm.buf)
-    b[:] = a[:]
+    start_array = np.array([1, 1, 2, 3, 5])
+    shm = shared_memory.SharedMemory(create=True, size=start_array.nbytes, name="sys_seminar_shm")
+    shared_memory_array = np.ndarray(start_array.shape, dtype=start_array.dtype, buffer=shm.buf)
+    shared_memory_array[:] = start_array[:]
 
     print("Modifying numpy array in shared memory...")
     for _ in range(args.get("seconds", 10)):
-        for i in range(len(b) - 1):
-            b[i] = b[i + 1]
-        b[-1] = b[-2] + b[-3]
-        print(b)
+        for i in range(len(shared_memory_array) - 1):
+            shared_memory_array[i] = shared_memory_array[i + 1]
+        shared_memory_array[-1] = shared_memory_array[-2] + shared_memory_array[-3]
+        print(shared_memory_array)
         sleep(1)
 
     return {"status": "done"}

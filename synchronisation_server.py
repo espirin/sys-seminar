@@ -6,20 +6,19 @@ from config import SYNCHRONISATION_SERVER_HOST, SYNCHRONISATION_SERVER_PORT
 
 app = Flask(__name__)
 
-shared_memory = b""
-lock = False
+SHARED_MEMORY = b""
 
 
 @app.route("/", methods=['GET'])
 def index_get():
-    return send_file(io.BytesIO(shared_memory),
+    return send_file(io.BytesIO(SHARED_MEMORY),
                      mimetype='image/jpeg')
 
 
 @app.route("/", methods=['POST'])
 def index_post():
-    global shared_memory
-    shared_memory = request.data
+    global SHARED_MEMORY
+    SHARED_MEMORY = request.data
 
     return jsonify({
         "result": "ok"
