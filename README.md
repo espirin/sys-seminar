@@ -4,7 +4,7 @@
 
 **❌️ OSX/Windows are not supported, run on x86 Linux**
 
-##Demo Setup
+## Demo Setup
 **Machine 1:**
 - synchroniser
 - writer (in OpenWhisk)
@@ -16,44 +16,44 @@
 **Synchronisation server (you can use http://85.214.75.108:5000):**
 - synchronisation server (Flask)
 
-##OpenWhisk setup
-Install out OpenWhisk fork
+## OpenWhisk setup
+Install our OpenWhisk fork
 ```
 git clone https://github.com/espirin/openwhisk-shm
 cd openwhisk-shm
 ./gradlew core:standalone:bootRun
 ```
-Install WSK (OpenWhisk CLI). Then unzip it and add wsk to $PATH.
+Install WSK (OpenWhisk CLI). Then unzip it and add wsk to your $PATH.
 ```
 wget https://github.com/apache/openwhisk-cli/releases
 ```
 
-Create actions
+Create OpenWhisk actions
 ```
 wsk action create reader --docker nitrotube/python39_runtime reader.py
 wsk action create writer --docker nitrotube/python39_runtime writer.py 
 ```
 
-##How to run
-🌍 Synchroniser:
+## How to run
+##### 🌍 Synchroniser:
 ```
 docker build -f Dockerfile.synchroniser --network host -t synchroniser .
 docker run --rm --name synchroniser -v /dev/shm:/dev/shm -it --network host synchroniser
 ```
 
-✍🏻 Writer:
+##### ✍🏻 Writer:
 ```
 wsk action invoke --result writer --param seconds 10
 ```
 
-👓 Reader:
+##### 👓 Reader:
 ```
 wsk action invoke --result reader --param seconds 10
 ```
 
 Preferred starting order: writer, synchroniser, reader. 
 
-🖥 Synchronisation server:
+##### 🖥 Synchronisation server:
 
 There's already a **demo server** running at http://85.214.75.108:5000. You can use it for tests.
 
