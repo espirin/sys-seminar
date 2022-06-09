@@ -4,10 +4,10 @@ import time
 import requests as requests
 from requests import RequestException
 
-from config import SHM_NAME, SYNCHRONISATION_SERVER_URL, SYNCHRONISER_UPDATE_DELAY
+from config import SYNCHRONISATION_SERVER_URL, SYNCHRONISER_UPDATE_DELAY
 
 last_shm = b""
-shm_path = os.path.join("/dev/shm/", SHM_NAME)
+shm_path = "/dev/shm/sys_seminar_shm"
 
 while True:
     update_shm = False

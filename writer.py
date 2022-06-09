@@ -9,7 +9,7 @@ def main(args):
         shm = shared_memory.SharedMemory(name="sys_seminar_shm")
         shm.unlink()
         shm.close()
-    except:
+    except (IndexError, ValueError, FileExistsError):
         pass
 
     a = np.array([1, 1, 2, 3, 5])
