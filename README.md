@@ -1,4 +1,4 @@
-# Modern Data Center Systems - Distributed Shared Memory Demo
+# Modern Data Center Systems Seminar - OpenWhisk DSM Demo
 
 ![example workflow](https://github.com/espirin/sys-seminar/actions/workflows/pylint.yml/badge.svg)
 
@@ -70,3 +70,5 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 sudo /path/to/venv/bin/python synchronisation_server.py
 ```
+
+👨‍🎓 2022 TUM - *Modern Data Center Systems Seminar*
