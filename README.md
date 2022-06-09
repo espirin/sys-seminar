@@ -1,5 +1,7 @@
 # Modern Data Center Systems - Distributed Shared Memory Demo
 
+![example workflow](https://github.com/espirin/sys-seminar/actions/workflows/pylint.yml/badge.svg)
+
 **⚠️ You need Docker and [our OpenWhisk fork](https://github.com/espirin/openwhisk-shm) to run this demo**
 
 **❌️ OSX/Windows are not supported, run on x86 Linux**
