@@ -8,7 +8,8 @@
 
 ## Demo Setup
 
-<img width="700" alt="system_diagram" src="https://user-images.githubusercontent.com/71665653/174108918-cbc3cd99-4351-479d-9954-fda1fe876640.png">
+<img width="750" alt="system_diagram" src="https://user-images.githubusercontent.com/71665653/174112743-845464b1-e297-4162-960b-543a02f13b70.png">
+
 
 **Machine 1:**
 - synchroniser
