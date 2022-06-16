@@ -23,7 +23,7 @@
 - synchronisation server (Flask)
 
 ## OpenWhisk setup
-Install our OpenWhisk fork
+Install and run our OpenWhisk fork
 ```
 git clone https://github.com/espirin/openwhisk-shm
 cd openwhisk-shm
