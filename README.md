@@ -7,6 +7,9 @@
 **❌️ OSX/Windows are not supported, run on x86 Linux**
 
 ## Demo Setup
+
+<img width="700" alt="system_diagram" src="https://user-images.githubusercontent.com/71665653/174108918-cbc3cd99-4351-479d-9954-fda1fe876640.png">
+
 **Machine 1:**
 - synchroniser
 - writer (in OpenWhisk)
