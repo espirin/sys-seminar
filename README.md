@@ -22,6 +22,9 @@
 **Synchronisation server (you can use http://85.214.75.108:5000):**
 - synchronisation server (Flask)
 
+## Demo video
+[![Demo video](https://i.ytimg.com/vi/UPCG7kJX1Oc/maxresdefault.jpg)](https://www.youtube.com/watch?v=UPCG7kJX1Oc)
+
 ## OpenWhisk setup
 Install and run our OpenWhisk fork
 ```
